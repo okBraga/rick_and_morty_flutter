@@ -14,10 +14,13 @@ class ErrorMessageWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(message),
+          Text(message, style: TextStyle(fontWeight: FontWeight.bold)),
           SizedBox(height: Spacements.md),
-          //TODO melhorar botão
-          ElevatedButton(onPressed: onTap, child: Text('Tentar novamente', style: TextStyle(color: Colors.white),)),
+          ElevatedButton(
+            onPressed: onTap,
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
+            child: Text('Tentar novamente', style: TextStyle(color: Colors.black)),
+          ),
         ],
       ),
     );

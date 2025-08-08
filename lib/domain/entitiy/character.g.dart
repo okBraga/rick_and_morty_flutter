@@ -14,14 +14,6 @@ Character _$CharacterFromJson(Map<String, dynamic> json) => Character(
   species: json['species'] as String,
 );
 
-Map<String, dynamic> _$CharacterToJson(Character instance) => <String, dynamic>{
-  'id': instance.id,
-  'name': instance.name,
-  'image': instance.image,
-  'status': _$CharacterStatusEnumMap[instance.status]!,
-  'species': instance.species,
-};
-
 const _$CharacterStatusEnumMap = {
   CharacterStatus.alive: 'Alive',
   CharacterStatus.dead: 'Dead',
