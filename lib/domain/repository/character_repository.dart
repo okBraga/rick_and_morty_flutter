@@ -10,21 +10,24 @@ abstract class CharacterRepository {
 @Singleton(as: CharacterRepository)
 class CharacterRepositoryImpl implements CharacterRepository {
   final HttpClient _httpClient;
+  static const _baseUrl = 'https://rickandmortyapi.com/api/character';
 
   CharacterRepositoryImpl(this._httpClient);
 
   @override
   Future<List<Character>> getCharacters() async {
-    final response = await _httpClient.get('https://rickandmortyapi.com/api/character');
-    final results = response['results'] as List;
+    final response = await _httpClient.get(path: _baseUrl);
+
+    final data = response.data as Map<String, dynamic>;
+    final results = data['results'] as List;
 
     return results.map((json) => Character.fromJson(json as Map<String, dynamic>)).toList();
   }
 
   @override
   Future<Character> getCharacterById(int id) async {
-    final response = await _httpClient.get('https://rickandmortyapi.com/api/character/$id');
+    final response = await _httpClient.get(path: '$_baseUrl/$id');
 
-    return Character.fromJson(response);
+    return Character.fromJson(response.data as Map<String, dynamic>);
   }
 }
