@@ -55,8 +55,7 @@ lib/
 ### 1. Clone o repositório
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
-cd rick_and_morty_flutter_test
+https://github.com/okBraga/rick_and_morty_flutter.git
 ```
 
 ### 2. Instale as dependências
